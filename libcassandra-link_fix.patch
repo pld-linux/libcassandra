@@ -1,0 +1,10 @@
+--- libcassandra-0.2.0.git20110414/libgenthrift/include.am.link_fix	2011-04-14 14:12:17.000000000 +0200
++++ libcassandra-0.2.0.git20110414/libgenthrift/include.am	2011-04-14 14:12:38.000000000 +0200
+@@ -28,5 +28,6 @@ libgenthrift_libgenthrift_la_CXXFLAGS= \
+ 				 ${AM_CXXFLAGS} 
+ 
+ libgenthrift_libgenthrift_la_LIBADD= \
+-				  $(LIBTHRIFT) 
++				  $(LIBTHRIFT)  \
++				  -lthrift
+ 
