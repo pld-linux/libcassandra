@@ -50,18 +50,13 @@ Pliki nagłówkowe biblioteki libcassandra.
 %patch0 -p1
 
 %build
-./config/autorun.sh
-# if ac/am/lt/* rebuilding is necessary, do it in this order and add
-# appropriate BuildRequires
-#%{__libtoolize}
-#%{__aclocal}
-# %{__autoconf}
-#%{__autoheader}
-#%{__automake}
-# When autoconf is not called last (as is in) ./config/autorun.sh  build fails.
-# %{__autoconf}
+%{__libtoolize}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
-	CXXFLAGS="%{rpmcxxflags} -Wno-variadic-macros -Wno-deprecated" 
+	CXXFLAGS="%{rpmcxxflags} -Wno-error"
 %{__make}
 
 %install
