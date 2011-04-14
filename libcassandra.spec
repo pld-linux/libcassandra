@@ -7,7 +7,7 @@ Summary:	A high level C++ client for Cassandra
 Summary(pl.UTF-8):	Klient Cassandry wyższego poziomu w C++
 Name:		libcassandra
 Version:	0.2.0.git20110414
-Release:	0.2
+Release:	1
 License:	BSD
 Group:		Libraries
 # http://beauty.ant.gliwice.pl/PLD/libcassandra-0.2.0.git-20110414.tar.gz
