@@ -1,19 +1,15 @@
-# TODO: Use PLD automagic instead of  ./config/autorun.sh
-# TODO: Review link_fix.patch:
-#	  why extra -lthrift is needed
-#	  as all linkinfo about thrift should be in  $(LIBTHRIFT)
 
 Summary:	A high level C++ client for Cassandra
 Summary(pl.UTF-8):	Klient Cassandry wyższego poziomu w C++
 Name:		libcassandra
-Version:	0.2.0.git20110414
+Version:	0.2.91
 Release:	1
 License:	BSD
 Group:		Libraries
-# http://beauty.ant.gliwice.pl/PLD/libcassandra-0.2.0.git-20110414.tar.gz
-Source0:	http://beauty.ant.gliwice.pl/PLD/%{name}-%{version}.tar.gz
-# Source0-md5:	c1f2e536267500c55707f96d341d7297
-Patch0:		%{name}-link_fix.patch
+# https://download.github.com/matkor-libcassandra-0.2.91-0-g98ab52b.tar.gz
+Source0:	https://download.github.com/matkor-libcassandra-%{version}-0-g98ab52b.tar.gz
+# Source0-md5:	8563f97a35ca4b465250e1e26873016e
+# Patch0:		%{name}-link_fix.patch
 URL:		https://github.com/posulliv/libcassandra
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -46,8 +42,8 @@ Pliki nagłówkowe biblioteki libcassandra.
 
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q -n matkor-libcassandra-98ab52b
+# %patch0 -p1
 
 %build
 %{__libtoolize}
@@ -56,7 +52,8 @@ Pliki nagłówkowe biblioteki libcassandra.
 %{__autoheader}
 %{__automake}
 %configure \
-	CXXFLAGS="%{rpmcxxflags} -Wno-error"
+	CXXFLAGS="%{rpmcxxflags} -Wno-variadic-macros -Wno-deprecated"
+
 %{__make}
 
 %install
@@ -77,9 +74,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 # %doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
 %attr(755,root,root) %{_libdir}/libcassandra.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libcassandra.so.2
+%attr(755,root,root) %ghost %{_libdir}/libcassandra.so.3
 %attr(755,root,root) %{_libdir}/libgenthrift.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgenthrift.so.0
+%attr(755,root,root) %ghost %{_libdir}/libgenthrift.so.3
 
 %files devel
 %defattr(644,root,root,755)
