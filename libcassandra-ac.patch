@@ -1,0 +1,32 @@
+--- matkor-libcassandra-98ab52b/configure.ac~	2011-06-01 13:08:55.000000000 +0200
++++ matkor-libcassandra-98ab52b/configure.ac	2014-01-28 20:06:30.684885060 +0100
+@@ -15,6 +15,7 @@
+ 
+ AC_PROG_CXX
+ AC_PROG_LIBTOOL
++AM_PROG_AR
+ 
+ PANDORA_CANONICAL_TARGET(less-warnings, warnings-always-on, require-cxx, skip-visibility)
+ 
+--- matkor-libcassandra-98ab52b/libgenthrift/Makefile.am~	2011-06-01 13:08:55.000000000 +0200
++++ matkor-libcassandra-98ab52b/libgenthrift/Makefile.am	2014-01-28 20:08:52.814886023 +0100
+@@ -19,16 +19,16 @@
+ 
+ 
+ # where to install the headers on the system
+-libgenthrift_ladir = $(includedir)/libgenthrift
++libgenthriftdir = $(includedir)/libgenthrift
+ 
+ # the sources to add to the library and to add to the source distribution
+-libgenthrift_la_HEADERS = \
++libgenthrift_HEADERS = \
+ 			 cassandra_constants.h \
+ 			 Cassandra.h \
+ 			 cassandra_types.h 
+ 
+ libgenthrift_la_SOURCES= \
+-				  $(libgenthrift_la_HEADERS )  \
++				  $(libgenthrift_HEADERS)  \
+ 				  cassandra_constants.cpp \
+ 				  Cassandra.cpp \
+ 				  cassandra_types.cpp 
