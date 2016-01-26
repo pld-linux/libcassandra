@@ -3,7 +3,7 @@ Summary:	A high level C++ client for Cassandra
 Summary(pl.UTF-8):	Klient Cassandry wyższego poziomu w C++
 Name:		libcassandra
 Version:	0.2.91
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries
 # https://download.github.com/matkor-libcassandra-0.2.91-0-g98ab52b.tar.gz
@@ -17,7 +17,7 @@ BuildRequires:	automake
 BuildRequires:	boost-devel
 BuildRequires:	libtool
 BuildRequires:	rpmbuild(macros) >= 1.583
-BuildRequires:	thrift-devel >= 0.5.0
+BuildRequires:	thrift-devel >= 0.9.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
