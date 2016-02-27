@@ -30,3 +30,16 @@
  				  cassandra_constants.cpp \
  				  Cassandra.cpp \
  				  cassandra_types.cpp 
+--- matkor-libcassandra-98ab52b/m4/lib-prefix.m4~	2011-06-01 13:08:55.000000000 +0200
++++ matkor-libcassandra-98ab52b/m4/lib-prefix.m4	2016-02-27 18:40:19.531804165 +0100
+@@ -174,7 +174,9 @@
+   dnl $prefix/lib/64 (which is a symlink to either $prefix/lib/sparcv9 or
+   dnl $prefix/lib/amd64) and 32-bit libraries go under $prefix/lib.
+   AC_REQUIRE([AC_CANONICAL_HOST])
+-  acl_libdirstem=lib
++  if test -z "$acl_libdirstem" ; then
++    acl_libdirstem=lib
++  fi
+   acl_libdirstem2=
+   case "$host_os" in
+     solaris*)

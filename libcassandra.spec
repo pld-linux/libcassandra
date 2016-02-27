@@ -58,6 +58,7 @@ Pliki nagłówkowe biblioteki libcassandra.
 %{__autoheader}
 %{__automake}
 %configure \
+	acl_libdirstem=%{_lib} \
 	CXXFLAGS="%{rpmcxxflags} -Wno-variadic-macros -Wno-deprecated"
 
 %{__make} V=1
