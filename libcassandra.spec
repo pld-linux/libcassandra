@@ -3,7 +3,7 @@ Summary:	A high level C++ client for Cassandra
 Summary(pl.UTF-8):	Klient Cassandry wyższego poziomu w C++
 Name:		libcassandra
 Version:	0.2.91
-Release:	4
+Release:	5
 License:	BSD
 Group:		Libraries
 # https://download.github.com/matkor-libcassandra-0.2.91-0-g98ab52b.tar.gz
