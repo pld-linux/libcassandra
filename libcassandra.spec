@@ -45,8 +45,8 @@ Pliki nagłówkowe biblioteki libcassandra.
 
 %prep
 %setup -q -n matkor-libcassandra-98ab52b
-# %patch0 -p1
-%patch1 -p1
+# %%patch0 -p1
+%patch -P1 -p1
 
 %{__sed} -i -e 's|-Werror||g' m4/pandora_canonical.m4 m4/pandora_warnings.m4
 %{__sed} -i -e 's|-O3||g' m4/pandora_optimize.m4
