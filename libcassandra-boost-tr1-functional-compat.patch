@@ -1,0 +1,30 @@
+--- /dev/null
++++ matkor-libcassandra-98ab52b/boost/tr1/functional.hpp
+@@ -0,0 +1,27 @@
++#ifndef BOOST_TR1_FUNCTIONAL_HPP
++#define BOOST_TR1_FUNCTIONAL_HPP
++
++#include <functional>
++
++namespace std {
++namespace tr1 {
++
++using ::std::bind;
++using ::std::function;
++
++namespace placeholders {
++using ::std::placeholders::_1;
++using ::std::placeholders::_2;
++using ::std::placeholders::_3;
++using ::std::placeholders::_4;
++using ::std::placeholders::_5;
++using ::std::placeholders::_6;
++using ::std::placeholders::_7;
++using ::std::placeholders::_8;
++using ::std::placeholders::_9;
++}
++
++}
++}
++
++#endif

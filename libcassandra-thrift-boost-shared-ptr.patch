@@ -1,0 +1,9 @@
+--- matkor-libcassandra-98ab52b/libgenthrift/Cassandra.h.orig
++++ matkor-libcassandra-98ab52b/libgenthrift/Cassandra.h
+@@ -6,6 +6,7 @@
+ #ifndef Cassandra_H
+ #define Cassandra_H
+ 
++#include <boost/shared_ptr.hpp>
+ #include <TProcessor.h>
+ #include "cassandra_types.h"

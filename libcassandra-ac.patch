@@ -1,6 +1,10 @@
 --- matkor-libcassandra-98ab52b/configure.ac~	2011-06-01 13:08:55.000000000 +0200
-+++ matkor-libcassandra-98ab52b/configure.ac	2014-01-28 20:06:30.684885060 +0100
-@@ -15,6 +15,7 @@
++++ matkor-libcassandra-98ab52b/configure.ac	2026-03-10 18:10:00.000000000 +0100
+@@ -11,10 +11,10 @@
+ AC_CONFIG_MACRO_DIR([m4])
+ AC_CONFIG_SRCDIR([libcassandra/cassandra.cc])
+ AC_CONFIG_AUX_DIR(config)
+-AM_INIT_AUTOMAKE
  
  AC_PROG_CXX
  AC_PROG_LIBTOOL
@@ -43,3 +47,14 @@
    acl_libdirstem2=
    case "$host_os" in
      solaris*)
+--- matkor-libcassandra-98ab52b/m4/pandora_canonical.m4~	2011-06-01 13:08:55.000000000 +0200
++++ matkor-libcassandra-98ab52b/m4/pandora_canonical.m4	2026-03-10 18:01:00.000000000 +0100
+@@ -58,8 +58,6 @@
+         m4_define([PCT_VERSION_FROM_VC],[yes])
+     ])
+   ])
+-
+-  AC_CONFIG_MACRO_DIR([m4])
+ 
+   m4_if(m4_substr(m4_esyscmd(test -d src && echo 0),0,1),0,[
+     AC_CONFIG_HEADERS([src/config.h])
