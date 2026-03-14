@@ -3,7 +3,7 @@ Summary:	A high level C++ client for Cassandra
 Summary(pl.UTF-8):	Klient Cassandry wyższego poziomu w C++
 Name:		libcassandra
 Version:	0.2.91
-Release:	5
+Release:	7
 License:	BSD
 Group:		Libraries
 # https://download.github.com/matkor-libcassandra-0.2.91-0-g98ab52b.tar.gz
@@ -11,6 +11,8 @@ Source0:	https://download.github.com/matkor-libcassandra-%{version}-0-g98ab52b.t
 # Source0-md5:	8563f97a35ca4b465250e1e26873016e
 # Patch0:		%{name}-link_fix.patch
 Patch1:		%{name}-ac.patch
+Patch2:		%{name}-thrift-boost-shared-ptr.patch
+Patch3:		%{name}-boost-tr1-functional-compat.patch
 URL:		https://github.com/posulliv/libcassandra
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -47,9 +49,12 @@ Pliki nagłówkowe biblioteki libcassandra.
 %setup -q -n matkor-libcassandra-98ab52b
 # %%patch0 -p1
 %patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 
 %{__sed} -i -e 's|-Werror||g' m4/pandora_canonical.m4 m4/pandora_warnings.m4
 %{__sed} -i -e 's|-O3||g' m4/pandora_optimize.m4
+%{__sed} -i -e 's|-std=gnu++98|-std=gnu++11|g' m4/pandora_check_cxx_standard.m4
 
 %build
 %{__libtoolize}
@@ -59,7 +64,7 @@ Pliki nagłówkowe biblioteki libcassandra.
 %{__automake}
 %configure \
 	acl_libdirstem=%{_lib} \
-	CXXFLAGS="%{rpmcxxflags} -Wno-variadic-macros -Wno-deprecated"
+	CXXFLAGS="%{rpmcxxflags} -Wno-variadic-macros -Wno-deprecated -DFORCE_BOOST_SMART_PTR -DFORCE_BOOST_FUNCTIONAL"
 
 %{__make} V=1
 
@@ -68,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} -f $RPM_BUILD_ROOT%{_libdir}/libcassandra.a
+%{__rm} -f $RPM_BUILD_ROOT%{_libdir}/libgenthrift.a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
